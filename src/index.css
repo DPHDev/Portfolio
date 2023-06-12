@@ -1,69 +1,282 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+@font-face {
+  font-family: "Aquire";
+  src: url("../public/fonts/aquire-font/Aquire-BW0ox.otf") format("opentype");
+}
+@font-face {
+  font-family: "AquireBold";
+  src: url("../public/fonts/aquire-font/AquireBold-8Ma60.otf") format("opentype");
+}
+@font-face {
+  font-family: "AquireLight";
+  src: url("../public/fonts/aquire-font/AquireLight-YzE0o.otf") format("opentype");
+}
+* {
+  font-family: "DM Sans";
+  font-family: "Poppins", "AquireBold", sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
-a {
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 100;
+}
+.header_logo {
+  font-family: "Poppins";
+  font-size: 3rem;
+  color: #F3F1FB;
+  cursor: default;
+  color: #c0c1c3;
+}
+
+.navbar {
+  display: flex;
+  gap: 2rem;
+}
+.navbar_link {
+  color: #c0c1c3;
+  transition: 0.3s;
+}
+.navbar_link:hover {
+  color: #01FFFF;
+  cursor: pointer;
+}
+.navbar_active {
+  color: #01FFFF;
+}
+.navbar_active:after {
+  display: block;
+  content: "";
+  height: 4px;
+  width: 100%;
+  background-color: #01FFFF;
+  border-radius: 2px;
+}
+
+.menu-icon {
+  width: 3.6rem;
+  fill: #01FFFF;
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    background-color: rgba(0, 2, 13, 0);
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .header {
+    background-color: rgba(0, 2, 13, 0);
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .header {
+    padding: 1rem 6%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header_logo {
+    font-size: 2rem;
+  }
+  .navbar {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    font-size: 1.5rem;
+    gap: 2rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    align-items: center;
+    background-color: rgba(0, 2, 13, 0.662745098);
+    backdrop-filter: blur(15px);
+    margin-left: -100%;
+    transition: all 0.5s ease;
+  }
+  .menu-icon {
+    width: 2rem;
+    fill: #01FFFF;
+    display: block;
+  }
+  .menu-open {
+    margin-left: 0;
+  }
+}
+.hero {
+  background-image: url("./assets/images/bgshadow-desktop.jpg");
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  padding: 100px;
+  padding-left: 10%;
+  display: flex;
+  align-items: center;
+}
+.hero_content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.hero_icon {
+  width: 1.5rem;
+  fill: #01FFFF;
+}
+.hero_name {
+  font-family: "Aquire";
+}
+.hero_jobs {
+  font-family: "AquireBold";
+}
+.hero_btn {
+  max-width: 250px;
+  padding: 12px 44px;
+  font-size: 1.4rem;
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #000000;
+  background-color: #01FFFF;
+  border: 1px solid;
+  border-radius: 5px;
 }
-a:hover {
-  color: #535bf2;
+.hero_btn:hover {
+  cursor: pointer;
+  border: 1px solid #01FFFF;
+  background-color: #00020d;
+  color: #01FFFF;
+}
+
+.social {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  display: flex;
+  gap: 1.5rem;
+}
+.social_item {
+  padding: 10px 15px 5px 15px;
+  border: 1px solid #01FFFF;
+  border-radius: 50px;
+}
+.social_item:hover .hero_icon {
+  cursor: pointer;
+  fill: #00020d;
+  stroke: #00020d;
+}
+.social_item:hover {
+  background-color: #01FFFF;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .hero {
+    background-image: url("./assets/images/bgshadow-tablet.jpg");
+  }
+  .social {
+    gap: 1rem;
+  }
+  .social_item {
+    padding: 12px 12px 5px 12px;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .hero {
+    background-image: url("./assets/images/bgshadow-mobile2.png");
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    padding: 40%;
+    padding-left: 10%;
+    display: flex;
+    align-items: flex-start;
+  }
+  .hero_content {
+    gap: 1.3rem;
+  }
+  .hero_btn {
+    max-width: 120px;
+    padding: 8px 24px;
+    font-size: 1rem;
+  }
+  .social {
+    left: 5%;
+    gap: 0.5rem;
+  }
+  .social_item {
+    padding: 8px 8px 5px 8px;
+  }
+}
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: #000000;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.text-accent {
+  color: #01FFFF;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.text-grey {
+  color: #c0c1c3;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.titles {
+  font-family: "Aquire";
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.7rem;
   }
-  a:hover {
-    color: #747bff;
+  h1 {
+    font-size: 4rem;
   }
-  button {
-    background-color: #f9f9f9;
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2rem;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 1.2rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  body {
+    font-size: 0.8rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

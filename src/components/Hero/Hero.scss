@@ -1,0 +1,125 @@
+.hero {
+    // background-image: linear-gradient(to right, rgba(0, 0, 0, 0.93) 40%, rgba(0, 0, 0, 0.85) 47%, rgba(0, 0, 0, 0.3) 55%),url('./assets/images/headerbg-web.png');
+    background-image: url('./assets/images/bgshadow-desktop.jpg');
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    padding: 100px;
+    padding-left: 10%;
+    display: flex;
+    align-items: center;
+
+    &_content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &_icon {
+        width: 1.5rem;
+        fill: getColor('accent');
+    }
+
+    &_name {
+        font-family: 'Aquire';
+    }
+
+    &_jobs {
+        font-family: 'AquireBold';
+    }
+
+    &_btn {
+        max-width: 250px;
+        padding: 12px 44px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: getColor('black');
+        background-color: getColor('accent');
+        border: 1px solid;
+        border-radius: 5px;
+
+        &:hover {
+            cursor: pointer;
+            border: 1px solid getColor('accent');
+            background-color: getColor('primary');
+            color: getColor('accent');
+        }
+    }
+}
+
+.social {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    display: flex;
+    gap: 1.5rem;
+    
+    &_item {
+        padding: 10px 15px 5px 15px;
+        border: 1px solid getColor('accent');
+        border-radius:  50px;
+    
+    &:hover .hero_icon {
+        cursor: pointer;
+        fill: getColor('primary');
+        stroke: getColor('primary');
+    }
+    &:hover {
+        background-color: getColor('accent');
+    }
+    }
+
+}
+
+@media screen and (min-width: 1025px) {}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+.hero {
+    background-image: url('./assets/images/bgshadow-tablet.jpg');
+}
+
+.social {
+    gap: 1rem;
+
+    &_item {
+        padding: 12px 12px 5px 12px;
+    }
+
+}
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+.hero { 
+    background-image: url('./assets/images/bgshadow-mobile2.png');
+    background-size: cover;
+        height: 100vh;
+        position: relative;
+        padding: 40%;
+        padding-left: 10%;
+        display: flex;
+        align-items: flex-start;
+    
+        &_content {
+            gap: 1.3rem;
+        }
+    
+        &_btn {
+            max-width: 120px;
+            padding: 8px 24px;
+            font-size: 1rem;
+        }
+    }
+    
+.social {
+    left: 5%;
+    gap: 0.5rem;
+
+    &_item {
+        padding: 8px 8px 5px 8px;
+    }
+
+}
+
+}
